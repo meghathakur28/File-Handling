@@ -1,0 +1,27 @@
+package FileHandling;
+import java.io.*;
+import java.util.*;
+public class FileCreated {
+    public static void main(String[] args)
+    {
+        File file= new File("Greeting.txt");
+        try {
+            boolean created=file.createNewFile();
+            System.out.println("File is created");
+            FileWriter writer=new FileWriter(file);
+            writer.write("hii welcome");
+            writer.close();
+            Scanner st = new Scanner(file);
+            while(st.hasNextLine()){
+                String str = st.nextLine();
+                System.out.println(str);
+            }
+
+        } catch (Exception e) {
+            System.out.println("File is not created");
+        }
+
+
+
+    }
+}
